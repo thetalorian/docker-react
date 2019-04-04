@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t thetalorian/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run thetalorian/docker-react npm run test -- --coverage
